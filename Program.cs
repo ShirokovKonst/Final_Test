@@ -6,18 +6,18 @@ namespace C__Final_Test
     {
         static void Main(string[] args)
         {
-            int szRez = 0;
+            int szRez = 0;  //количество элементов результирующего массива
             int count = Prompt("Введите количество элементов массива: ");
-            string[] arr = FillArray(count);
-            PrintArray(arr);
-            Console.Write((char)8594);
-            if (szRez == 0) Console.Write("[]");
+            string[] arr = FillArray(count); //Заполнили массив, данными от пользователя
+            PrintArray(arr); // Вывод изначального массива на печать
+            Console.Write((char)8594); // Печать символа стрелка
+            if (szRez == 0) Console.Write("[]"); // Если в массиве нет элементов, длинной меньше либо равной трем, то не начинаем обрабатывать массив.
             else
             {
                 string[] resArr = ResultArray(szRez, arr);
                 PrintArray(resArr);
             }
-            
+
             int Prompt(string msg)
             {
                 Console.WriteLine(msg);
