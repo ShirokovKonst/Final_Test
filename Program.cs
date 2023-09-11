@@ -9,9 +9,15 @@ namespace C__Final_Test
             int szRez = 0;
             int count = Prompt("Введите количество элементов массива: ");
             string[] arr = FillArray(count);
-            string[] resArr = ResultArray(szRez, arr);
-        
-
+            PrintArray(arr);
+            Console.Write((char)8594);
+            if (szRez == 0) Console.Write("[]");
+            else
+            {
+                string[] resArr = ResultArray(szRez, arr);
+                PrintArray(resArr);
+            }
+            
             int Prompt(string msg)
             {
                 Console.WriteLine(msg);
@@ -30,21 +36,24 @@ namespace C__Final_Test
                 for (int i = 0; i < c; i++)
                 {
                     result[i] = PromptStr("Введите " + i + " элемент массива: ");
-                    if (result[i].Length > 3) szRez++; 
+                    if (result[i].Length <= 3) szRez++; 
                 }
                 return result;
             }
 
             string[] ResultArray(int c, string[] arr)
             {
-                if (c == 0) return null;
+                if (c == 0) 
+                {
+                    return null;
+                }
                 string[] result = new string[c];
                 int j = 0;
                 while (j < c)
                 {
                     for (int i = 0; i<arr.Length; i++)
                     {
-                        if(arr[i].Length < 3)
+                        if(arr[i].Length <= 3)
                         {   
                             result[j] = arr[i];
                             j++;
@@ -52,6 +61,18 @@ namespace C__Final_Test
                     }
                 }
                 return result;
+            }
+
+            void PrintArray(string[] arr)
+            {
+                Console.Write("[");
+                for (int i = 0; i < arr.Length; i++)
+                {
+                    if (i == arr.Length-1) Console.Write("\"" + arr[i] + "\"");
+                    else
+                    Console.Write("\"" + arr[i] + "\", ");
+                }
+                Console.Write("]");
             }
         }
 
