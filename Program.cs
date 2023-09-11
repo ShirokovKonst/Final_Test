@@ -6,6 +6,7 @@ namespace C__Final_Test
     {
         static void Main(string[] args)
         {
+            int szRez = 0;
             int count = Prompt("Введите количество элементов массива: ");
             string[] arr = FillArray(count);
         
@@ -27,7 +28,8 @@ namespace C__Final_Test
                 string[] result = new string[c];
                 for (int i = 0; i < c; i++)
                 {
-                result[i] = PromptStr("Введите " + i + " элемент массива: ");
+                    result[i] = PromptStr("Введите " + i + " элемент массива: ");
+                    if (result[i].Length > 3) szRez++; 
                 }
                 return result;
             }
